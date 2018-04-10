@@ -27,9 +27,9 @@ foreach($info in $runbookinfo)
         'GraphPowerShellWorkflow' {$info.Type = 'GraphicalPowerShellWorkflow'}
     }
     $info.Name, $info.Type, $info.File;
-    #Import-AzureRMAutomationRunbook -Name $info.Name -Path $info.File `
-    #-ResourceGroupName $rgname -AutomationAccountName $autoacct `
-    #-Type $info.Type; 
+    Import-AzureRMAutomationRunbook -Name $info.Name -Path $info.File `
+    -ResourceGroupName $rgname -AutomationAccountName $autoacct `
+    -Type $info.Type -Force; 
 
 }
 #$files = (Get-ChildItem -Path $path).Name;
