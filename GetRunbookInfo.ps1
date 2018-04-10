@@ -4,6 +4,7 @@ $autoacct = 'fbgautomation';
 $destacct = 'fbgjapan';
 $path = 'C:\automation\Runbooks';
 $runbooks = @();
+$runbookinfo = @();
 
 $runbooks = Get-AzureRmAutomationRunbook -ResourceGroupName $rgname -AutomationAccountName $autoacct -Verbose;
 
