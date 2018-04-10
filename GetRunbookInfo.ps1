@@ -17,12 +17,16 @@ foreach($runbook in $runbooks)
 
 foreach($info in $runbookinfo)
 {
-    $info.Name, $info.Type, $info.File;
 
     switch($info.Type)
     {
-        'Script' {'PowerShellWorkflow'}
+        'GraphPowerShell' {$info.Type = 'GraphicalPowerShell'}
+        'Python2' {$info.Type = 'PowerShellWorkflow'}
+        'PowerShell' {$info.Type = 'PowerShell'}
+        'Script' {$info.Type = 'PowerShellWorkflow'}
+        'GraphPowerShellWorkflow' {$info.Type = 'GraphicalPowerShellWorkflow'}
     }
+    $info.Name, $info.Type, $info.File;
     #Import-AzureRMAutomationRunbook -Name $info.Name -Path $info.File `
     #-ResourceGroupName $rgname -AutomationAccountName $autoacct `
     #-Type $info.Type; 
